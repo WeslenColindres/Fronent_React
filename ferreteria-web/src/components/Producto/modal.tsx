@@ -30,7 +30,7 @@ const AgregarProducto: React.FC<AgregarProps> = ({
   const [productos, setProductos] = React.useState<T>({
     Nombre_Producto: "",
     Descripción: "",
-    Precio_Unitario: 0,
+    Precio_Unitario: 0.0,
     Cantidad_Stock: 0,
     ID_Categoria: 1,
   });

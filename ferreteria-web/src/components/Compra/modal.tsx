@@ -30,23 +30,6 @@ interface AgregarCompraProps {
   handleClose: () => void;
 }
 
-export interface Compra {
-  ID_Proveedor: {
-    Nombre_Proveedor: string;
-    Contacto: string;
-    Teléfono: string;
-    Dirección: string;
-  };
-  ID_Producto: {
-    Nombre_Producto: string;
-    Descripción: string;
-    Precio_Unitario: number;
-    Cantidad_Stock: number;
-    ID_Categoria: number;
-  };
-  Cantidad: number;
-  Precio_Compra: number;
-}
 
 const AgregarCompra: React.FC<AgregarCompraProps> = ({
   isOpen,
@@ -55,7 +38,7 @@ const AgregarCompra: React.FC<AgregarCompraProps> = ({
   const [openDialog, setOpenDialog] = useState(false);
   const [isExistProductos, setIsExistProductos] = useState(true);
   const [isExistProveedores, setIsExistProveedores] = useState(true);
-  const [compra, setCompra] = React.useState<Compra>({
+  const [compra, setCompra] = React.useState<T>({
     ID_Proveedor: {
       Nombre_Proveedor: "",
       Contacto: "",
@@ -65,7 +48,7 @@ const AgregarCompra: React.FC<AgregarCompraProps> = ({
     ID_Producto: {
       Nombre_Producto: "",
       Descripción: "",
-      Precio_Unitario: 0.0,
+      Precio_Unitario: 0,
       Cantidad_Stock: 0,
       ID_Categoria: 1,
     },
@@ -276,9 +259,9 @@ const AgregarCompra: React.FC<AgregarCompraProps> = ({
                         label="Seleccionar Proveedor"
                         onChange={handleProveedorChange}
                       >
-                        {productos.map((producto, index) => (
-                          <MenuItem key={index} value={producto.ID_Producto}>
-                            {producto.Nombre_Producto}
+                        {proveedor.map((proveedor, index) => (
+                          <MenuItem key={index} value={proveedor.ID_Proveedor}>
+                            {proveedor.Nombre_Proveedor}
                           </MenuItem>
                         ))}
                       </Select>
@@ -365,9 +348,9 @@ const AgregarCompra: React.FC<AgregarCompraProps> = ({
                         label="Producto"
                         onChange={handleProductoChange}
                       >
-                        {proveedor.map((prov, index) => (
-                          <MenuItem key={index} value={prov.ID_Proveedor}>
-                            {prov.Nombre_Proveedor}
+                        {productos.map((prov, index) => (
+                          <MenuItem key={index} value={prov.ID_Producto}>
+                            {prov.Nombre_Producto}
                           </MenuItem>
                         ))}
                       </Select>

@@ -1,0 +1,15 @@
+.button {
+  border-radius: 16px;
+  background: linear-gradient(100deg, #9181f4 -5.85%, #5038ed 109.55%);
+  box-shadow: 0px 8px 21px 0px rgba(0, 0, 0, 0.16);
+  width: 128px;
+  height: 44px;
+  flex-shrink: 0;
+  border: transparent;
+  color: #fff;
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
